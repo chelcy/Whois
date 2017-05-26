@@ -1,0 +1,16 @@
+name: Whois
+main: net.mchel.plugin.whois.Whois
+version: 1.0
+author: Chelcy
+description: whois command
+website: https://www.mchel.net
+default-permission: false
+commands:
+  whois:
+    permission: whois.cmd
+    description: whois command
+    usage: /<command> args
+permissions:
+  whois.cmd:
+    description: command permission
+    default: op
