@@ -4,7 +4,6 @@ version: 1.0
 author: Chelcy
 description: whois command
 website: https://www.mchel.net
-default-permission: false
 commands:
   whois:
     permission: whois.cmd

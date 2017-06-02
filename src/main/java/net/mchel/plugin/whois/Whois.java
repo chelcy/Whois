@@ -44,7 +44,7 @@ public class Whois extends JavaPlugin {
 				ChatColor.LIGHT_PURPLE + " ------------|" + ChatColor.YELLOW + " Player whois " + ChatColor.LIGHT_PURPLE + "|------------",
 				"   Player: " + targetPlayer.getName(),
 				"   UUID: " + targetPlayer.getUniqueId().toString(),
-				"   Address: " + targetPlayer.getAddress().toString().replaceFirst("/", "").replace(String.valueOf(targetPlayer.getAddress().getPort()), "").replace(":", ""),
+				"   Address: " + replaceLast(targetPlayer.getAddress().toString().replaceFirst("/", "").replace(String.valueOf(targetPlayer.getAddress().getPort()), ""), ":", ""),
 				"   Ping: " + getPing(targetPlayer),
 				"   World: " + loc.getWorld().getName(),
 				"   Location: " + loc.getBlockX() + ", " + loc.getBlockY() + ", " + loc.getBlockZ(),
@@ -54,6 +54,10 @@ public class Whois extends JavaPlugin {
 		};
 		sender.sendMessage(str);
 		return true;
+	}
+
+	private String replaceLast(String text, String regex, String replacement) {
+		return text.replaceFirst("(?s)(.*)" + regex, "$1" + replacement);
 	}
 
 	private int getPing(Player player) {
